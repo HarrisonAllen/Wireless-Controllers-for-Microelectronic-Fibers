@@ -1,0 +1,812 @@
+<style type="text/css">
+    p {
+        font-size:16px;
+    }
+    li {
+        font-size:14px;
+    }
+    h4 {
+        font-size:20px;
+    }
+    h3 {
+        font-size:24px;
+    }
+    h2 {
+        font-size:28px;
+    }
+    h1 {
+        font-size:32px;
+    }
+</style>
+
+<h2>Welcome!</h2>
+<p>A quick note on the GUI: every window/tab can be rearranged. You can move each window around, dock them side-by-side, or combine windows into a tab group. Try it out!</p>
+
+
+
+<h1>Getting Started</h1>
+<p style="text-align: center;"><img src="{{Guide_Images/CentralGuide.png}}" /></p>
+<p><ol>
+    <li><b>Plug in the Central board to your computer.</b></li>
+    <li><b>Switch to the <code>Central</code> tab<b>(a)</b>.</b></li>
+    <li><b>Select the corresponding port from the dropdown<b>(b)</b>.</b>
+        <ul>
+            <li>In this example, it is <code>COM6</code>. It will likely be something different on your machine.</li>
+            <li>If you do not see the correct port in the dropdown, then try pressing <code>Refresh</code><b>(c)</b>.</li>
+        </ul>
+    </li>
+    <li><b>Press <code>Connect</code><b>(d)</b>.</b>
+        <ul>
+            <li>If you selected the correct port, the <code>Connect</code> button will change to <code>Disconnect</code>.</li>
+            <li>If you selected the incorrect port, the software will pause for a ~5 seconds, and the button will show <code>Retry Connection</code>.</li>
+            <li>Any modules that are powered on before connecting will automatically show up in the GUI.</li>
+        </ul>
+    </li>
+    <li><b>Power on the wireless modules.</b>
+        <ul>
+            <li>The GUI will automatically display the connected module in a new tab.</li>
+            <li>You can manually scan for wireless modules using the <code>Scan For Modules</code> button.<b>(e)</b></li>
+        </ul>
+    </li>
+</ol></p>
+
+
+
+<h1>Controlling a Wireless Module</h1>
+<p>Once connected, the wireless module will show up on the right. Let's get into explaining the GUI:</p>
+<p style="text-align: center;"><img src="{{Guide_Images/ModuleGuide.png}}" /></p>
+
+<h2>(a) Tab controls</h2>
+<p><ul>
+    <li><b>Module Tab Title</b> 
+        <ul>
+            <br><img src="{{Guide_images/a_title.png}}" />
+            <li>Click and drag the title to rearrange the tab.</li>
+        </ul>
+    </li>
+    <li><b>Popout</b> 
+        <ul>
+            <br><img src="{{Guide_images/a_popout.png}}" />
+            <li>Click to pop the tab out into a separate window.</li>
+            <li>You can place the window back into the GUI by dragging it over the GUI.</li>
+        </ul>
+    </li>
+    <li><b>Close</b> 
+        <ul>
+            <br><img src="{{Guide_images/a_close.png}}" />
+            <li>Click to close the tab.</li>
+            <li>You can reopen closed module tabs by pressing the <code>Scan For Modules</code> button in the <code>Central</code> tab.</li>
+        </ul>
+    </li>
+</ul></p>
+
+<h2>(b) Module Information</h2>
+<p><ul>
+    <li><b>Module Info</b> 
+        <ul>
+            <br><img src="{{Guide_images/b_title.png}}" />
+            <li>The info is formatted as <code>Module [ID number] - v[Version number]</code></li>
+            <li>Each module has a unique ID.</li>
+        </ul>
+    </li>
+    <li><b>Connection Status</b>
+        <ul>
+            <li>The bluetooth icon will change depending on the module's connection status:
+                <ul>
+                    <li><b>Connected</b> <img src="{{Guide_images/b_connected.png}}" /></li>
+                    <li><b>Disconnected</b> <img src="{{Guide_images/b_disconnected.png}}" /></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul></p>
+
+<h2>(c) Module Controls</h2>
+<p><ul>
+    <li><b>Manual Command</b>
+        <ul>
+            <br><img src="{{Guide_Images/c_manual.png}}" />
+            <li>Send a manual command to the module. See <code>Manual Module Commands</code> for more information.</li>
+        </ul>
+    </li>
+    <li><b>Sync Module</b>
+        <ul>
+            <br><img src="{{Guide_Images/c_sync.png}}" />
+            <li>Sync the module with the current GUI settings.</li>
+            <li>For example, if the module has been reset (by power cycle or via reset button), then you can press this button to setup the pins as they appear in the GUI.</li>
+        </ul>
+    </li>
+    <li><b>Reset Module</b>
+        <ul>
+            <br><img src="{{Guide_Images/c_reset.png}}" />
+            <li>Reset the module.</li>
+            <li>This will stop all functions and turn all of the pins on the module to <code>Custom - Input</code>.</li>
+        </ul>
+    </li>
+    <li><b>Disconnect Module</b>
+        <ul>
+            <br><img src="{{Guide_Images/c_disconnect.png}}" />
+            <li>Disconnect the module by turning off its bluetooth connection.</li>
+            <li><b>Note:</b> to reconnect to this module, you'll have to turn the module off and back on.</li>
+        </ul>
+    </li>
+</ul></p>
+
+<h2>(d) Pin Tabs</h2>
+<p><ul>
+    <li><b>Pin Tabs</b>
+        <ul>
+            <br><img src="{{Guide_Images/d_tabs.png}}" />
+            <li>Switch between the settings for each pin.</li>
+            <li>Each tab can be moved around within the module window. You can have two pin tabs side by side!</li>
+        </ul>
+    </li>
+</ul></p>
+
+<h2>(e) Pin Mode Selection</h2>
+<p><ul>
+    <li>Each pin should be set to the mode corresponding to the respective fiber pin function.</li>
+    <li>For example, if Pin 1 on the fiber is an LED pin, then Pin 1 should be set to LED mode here.</li>
+    <li>You can read more about each pin mode in the <code>Pin Modes</code> section. For now, here is a brief overview of each mode:</li>
+    <li><b>Custom Mode</b>
+        <ul>
+            <br><img src="{{Pin_Icons/Pin_Custom.png}}" />
+            <li>Manually set the input/output of each pin. Useful for testing.</li>
+        </ul>
+    </li>
+    <li><b>Ground Mode</b>
+        <ul>
+            <br><img src="{{Pin_Icons/Pin_Ground.png}}" />
+            <li>Designate the pin as Ground.</li>
+            <li>At least one of the pins should be set to this, which one it is depends on the fiber layout.</li>
+        </ul>
+    </li>
+    <li><b>LED Mode</b>
+        <ul>
+            <br><img src="{{Pin_Icons/Pin_LED.png}}" />
+            <li>Stimulate using an LED.</li>
+        </ul>
+    </li>
+    <li><b>Temperature Mode</b>
+        <ul>
+            <br><img src="{{Pin_Icons/Pin_Temperature.png}}" />
+            <li>Measure temperature using an NTC.</li>
+        </ul>
+    </li>
+</ul></p>
+
+
+
+<h1>Pin Modes</h1>
+
+<h2>Custom Mode</h2>
+<p style="text-align: center;"><img src="{{Guide_Images/CustomGuide.png}}" /></p>
+<p><b>Manually set the mode of the internal input/output pins of this pin. Useful for testing fiber functionality.</b></p>
+<p><b>Use of this mode is <i>NOT</i> recommended unless you know what you're doing.</b></p>
+<p><ul>
+    <li><b>Updates</b>
+        <ul>
+            <br><img src="{{Guide_Images/cm_updates.png}}" />
+            <li>Check the box to receive status updates from the module, such as when the pin is turned on/off.</li>
+            <li>Status updates will appear following <code>Status:</code>.</li>
+        </ul>
+    </li>
+    <li><b>Input Pin Mode</b>
+        <ul>
+            <br><img src="{{Guide_Images/cm_input.png}}" />
+            <li>Read voltages using this pin.</li>
+            <li><b>Use Internal Pullup</b>: Check to use the module's internal pullup resistor on this pin.</li>
+            <li><b>Read Pin</b>: Read the current voltage of the pin. Read value is displayed following <code>Data:</code>.</li>
+            <li><b>Data Type dropdown</b>: Convert the read voltage between the following:
+                <ul>
+                    <li><b>Voltage</b>: The voltage (in V) read on the pin (to 4 decimal places).</li>
+                    <li><b>Raw</b>: The raw value measured by the module (at a resolution of 14 bits.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><b>Output Pin Mode</b>
+        <ul>
+            <br><img src="{{Guide_Images/cm_output.png}}" />
+            <li><b>Pin on</b>: Check to turn on the pin, uncheck to turn off.</li>
+        </ul>
+    </li>
+</ul></p>
+
+<h2>Ground Mode</h2>
+<p style="text-align: center;"><img src="{{Guide_Images/GroundGuide.png}}" /></p>
+<p><b>Use this pin as a Ground pin. Refer to your fiber layout to determine which pin this should be.</b></p>
+
+<h2>LED Mode</h2>
+<p style="text-align: center;"><img src="{{Guide_Images/LEDGuide.png}}" /></p>
+<p><b>Control the fiber LED attached to this pin.</b></p>
+<p><ul>
+    <li><b>Updates</b>
+        <ul>
+            <br><img src="{{Guide_Images/lm_status.png}}" />
+            <li>Check the box to receive status updates from the module, such as when the pin is pulsing the LED or resting.</li>
+            <li>Status updates will appear following <code>Status:</code>.</li>
+        </ul>
+    </li>
+    <li><b>Manual Control</b>
+        <ul>
+            <br><img src="{{Guide_Images/lm_manual.png}}" />
+            <li>Check the box to manually turn the LED on and off.</li>
+        </ul>
+    </li>
+    <li><b>Pulse Control</b>
+        <ul>
+            <br><img src="{{Guide_Images/lm_pulse.png}}" />
+            <li>Control the stimulation waveform of the LED. The chart shows each of the parameters on the waveform.</li>
+            <li>The module will turn the LED on for <code>LED On Duration</code> and off for <code>LED Off Duration</code> repeatedly for the entirety of the <code>Pulse Duration</code>. The module will then turn off the LED and rest for <code>Rest Duration</code> before pulsing again.</li>
+            <li><b>LED On Duration</b>: The amount of time (in ms) the LED is on before turning off during the pulse period.</li>
+            <li><b>LED Off Duration</b>: The amount of time (in ms) the LED is off before turning on during the pulse period.</li>
+            <li><b>Pulse Duration</b>: The amount of time (in ms) the LED on/off cycle should run before resting.</li>
+            <li><b>Rest Duration</b>: The amount of time (in ms) the module should rest before resuming pulsing.</li>
+            <li><b>Set All Parameters</b>: Set all of the above parameters at once.</li>
+            <li><b>Start</b>
+                <ul>
+                    <br><img src="{{Guide_Images/start.png}}" />
+                    <li>Start pulsing the LED.</li>
+                </ul>
+            </li>
+            <li><b>Restart</b>
+                <ul>
+                    <br><img src="{{Guide_Images/restart.png}}" />
+                    <li>Start pulsing the LED from the beginning.</li>
+                </ul>
+            </li>
+            <li><b>Stop</b>
+                <ul>
+                    <br><img src="{{Guide_Images/stop.png}}" />
+                    <li>Stop pulsing the LED.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><b>Test LED Functionality</b>
+        <ul>
+            <br><img src="{{Guide_Images/lm_test.png}}" />
+            <li>Press <code>Run Test</code> to see if the LED is functioning properly. The result will be following <code>Test Results:</code>.</li>
+            <li>If you see the message <code>LED Malfunction</code>, then the LED in the fiber is being shorted.</li>
+        </ul>
+    </li>
+</ul></p>
+
+<h2>Temperature Mode</h2>
+<p style="text-align: center;"><img src="{{Guide_Images/TemperatureGuide.png}}" /></p>
+<p><b>Read temperature using the NTC attached to this pin.</b></p>
+<p><ul>
+    <li><b>Calibration</b>
+        <ul>
+            <br><img src="{{Guide_Images/tm_calibration.png}}" />
+            <li>Input the value of the reference resistor (in &#8486;) used for this NTC in order to get accurate temperature measurements.</li>
+            <li>Refer to the fiber documentation for this value.</li>
+        </ul>
+    </li>
+    <li><b>Manual Control</b>
+        <ul>
+            <br><img src="{{Guide_Images/tm_manual.png}}" />
+            <li><b>Read Pin</b>: Read the current voltage of the pin. Read value is displayed following <code>Data:</code>.</li>
+            <li><b>Data Type dropdown</b>: Convert the read voltage between the following:
+                <ul>
+                    <li><b>Temperature</b>: The temperature (in &#176;C) read on the pin (to 3 decimal places).</li>
+                    <li><b>Voltage</b>: The voltage (in V) read on the pin (to 4 decimal places).</li>
+                    <li><b>Raw</b>: The raw value measured by the module (at a resolution of 14 bits.</li>
+                    <li>This will also change the data representation on the graph.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><b>Automatic Control</b>
+        <ul>
+            <br><img src="{{Guide_Images/tm_automatic.png}}" />
+            <li>Continuously read temperature at a certain rate, store it on the module, and send it to the GUI after a certain number of points have been collected.</li>
+            <li><b>Time Between Data Points</b>: The amount of time (in ms) to wait between reading the current temperature.</li>
+            <ul>
+                <li><b>Note:</b> I do not recommend going below 15ms. Below this, it's possible that the module will not be able to receive any commands (but will still send data).</li>
+            </ul>
+            <li><b># Points to Collect</b>: The number of points the module should store before sending them all at once to the GUI (max: 1000).</li>
+            <ul>
+                <li><b>Note:</b> Data points are bundled in groups of 100 and then sent to the GUI. When sending 300+ data points (or more), it's possible that a group will get dropped. I advise sending 200 or fewer points at once, if possible.</li>
+            </ul>
+            <li><b>Note:</b> I recommend that you avoid sending faster than every 100ms. This can cause the module to become nonresponsive. If you want to measure every 25ms, for example, try collecting 4 points at once for a send rate of 100ms and still get fast data.</li>
+            <li><b>Set All Parameters</b>: Set both of the above parameters at once.</li>
+            <li><b>Start</b>
+                <ul>
+                    <br><img src="{{Guide_Images/start.png}}" />
+                    <li>Start reading data.</li>
+                </ul>
+            </li>
+            <li><b>Restart</b>
+                <ul>
+                    <br><img src="{{Guide_Images/restart.png}}" />
+                    <li>Clear data stored on the module and start reading again.</li>
+                </ul>
+            </li>
+            <li><b>Stop</b>
+                <ul>
+                    <br><img src="{{Guide_Images/stop.png}}" />
+                    <li>Stop reading data.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><b>Graph</b>
+        <ul>
+            <br><img src="{{Guide_Images/tm_graph.png}}" />
+            <li><b>The graph</b> will plot the data as it is received from the module. The graph can do a few things:
+                <ul>
+                    <li>Pan the graph using the mouse. Click on the [A] in the bottom left corner to reset the view.</li>
+                    <li>Right click on the graph for more options, such as:
+                        <ul>
+                            <li>Locking the X/Y axes to a specific range</li>
+                            <li>Exporting the current data on the graph as an image or .csv file</li>
+                            <li>And more!</li>
+                        </ul>
+                    </li>
+                    <li>Increase the size of the window/tab to increase the size of the graph.</li>
+                </ul>
+            </li>
+            <li>The maximum number of stored points is 1,000,000. Once 1,000,000 points have been stored, the GUI will begin to throw out old data.</li>
+            <li><b>Points to Display</b>: The number of points (backwards in time from now) to display on the graph at once (max 1,000,000).
+                <ul>
+                    <li>The more points being displayed, the slower the GUI may run. If you are seeing performance issues, try reducing the number of points.</li>
+                    <li>The graph will only export what's visible, so even though you may have, say, 50,000 points measured, if <code>Points to Display</code> is 1000, only 1000 points will be exported.</li>
+                </ul>
+            </li>
+            <li><b>Smoothing</b>: Smooth the data using a moving average.</li>
+            <li><b>Clear Data</b>: Delete all of the data stored in the GUI.</li>
+        </ul>
+    </li>
+</ul></p>
+
+
+
+<h1>Troubleshooting</h1>
+<p><ul>
+    <li><b>Can't connect to Central board</b>
+        <ul>
+            <li>Make sure that the central board is plugged into your computer.</li>
+            <li>Try selecting a different port from the dropdown. If the port isn't present in the dropdown, try pressing <code>Refresh</code>.</li>
+            <li>If neither of those worked, try:
+                <ol>
+                    <li>Close the GUI</li>
+                    <li>Unplug the central board from your computer</li>
+                    <li>Wait 3+ seconds</li>
+                    <li>Plug the central board back into your computer</li>
+                    <li>Open the GUI</li>
+                    <li>Attempt to connect to the central board again</li>
+                </ol>
+            </li>
+        </ul>
+    </li>
+    <li><b>Wireless Module keeps disconnecting then reconnecting</b>
+        <ul>
+            <li>This is normal due to the nature of Bluetooth. However, if the module fails to reconnect:
+                <ol>
+                    <li>Try pressing the <code>Scan for Modules</code> button</li>
+                    <li>If it fails to reconnect, try turning the corresponding wireless module on and off again</li>
+                </ol>
+            </li>
+            <li>If neither of these work, see the next issue</li>
+        </ul>
+    </li>
+    <li><b>Wireless Module is nonresponsive</b>
+        <ul>
+            <li>This could happen if you are sending data too fast from the module (e.g. reading the temperature every 5ms and sending one point immediately). In this case, you will have to restart the module.</li>
+            <li>If you are sending data at a reasonable rate (e.g. >100ms per batch), then this may be due to the central board crashing or getting frozen. You can try the following steps to remedy the problem:
+                <ol>
+                    <li>Disconnect from the central board in the GUI</li>
+                    <li>Unplug the central board from your computer</li>
+                    <li>Wait 3+ seconds</li>
+                    <li>Plug the central board back into your computer</li>
+                    <li>Reconnect to the central board in the GUI</li>
+                </ol>
+            </li>
+        </ul>
+    </li>
+    <li><b>LED on the fiber is not lighting up</b>
+        <ul>
+            <li>Check that the fiber is plugged into the correct orientation</li>
+            <li>Check that the ground pin is set to the proper pin in the GUI</li>
+        </ul>
+    </li>
+    <li><b>Temperature is displaying incorrect/unexpected values</b>
+        <ul>
+            <li>Check that the fiber is plugged into the correct orientation</li>
+            <li>Check that the ground pin is set to the proper pin in the GUI</li>
+            <li>Check that the calibration value is set to the correct resistance</li>
+        </ul>
+    </li>
+</ul></p>
+
+
+
+<h1>Manual Module Commands</h1>
+<p>Module commands are groups of arguments separated by commas, with each command ending in a semicolon. E.g. <code>M,N;S,1,P,G;</code> is two commands, <code>M,N;</code> and <code>S,1,P,G;</code> combined. You can combine multiple commands together to send them at once.</code></p>
+<p>The first argument is the command type, and any following arguments will depend on the command's options.</p>
+
+<h2>Module Commands - M</h2>
+<p>These are commands to get general information about the module and perform whole-module tasks</p>
+<p><ul>
+    <li><b>Get ID</b> - I
+        <ul>
+            <li>Gets the ID of the module</li>
+            <li>Arguments: None</li>
+            <li>Returns: "I[Module ID]"</li>
+            <li>Example usage: M,I;</li>
+        </ul>
+    </li>
+    <li><b>Get Version</b> - V
+        <ul>
+            <li>Gets the version of the module</li>
+            <li>Arguments: None</li>
+            <li>Returns: "V[Module Version]"</li>
+            <li>Example usage: M,V;</li>
+        </ul>
+    </li>
+    <li><b>Get Name</b> - V
+        <ul>
+            <li>Gets the name of the module</li>
+            <li>Arguments: None</li>
+            <li>Returns: "NModule [Module Version] #[Module ID]"</li>
+            <li>Example usage: M,N;</li>
+        </ul>
+    </li>
+    <li><b>Reset</b> - R
+        <ul>
+            <li>Resets the module</li>
+            <li>Arguments: None</li>
+            <li>Returns: "RReset"</li>
+            <li>Example usage: M,R;</li>
+        </ul>
+    </li>
+    <li><b>Disconnect</b> - D
+        <ul>
+            <li>Turns of bluetooth on the wireless module</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: M,D;</li>
+        </ul>
+    </li>
+</ul></p>
+
+<h2>Setup Commands - S</h2>
+<p>These commands set up the pins</p>
+<p>Arguments: [Pin Number (0 indexed)], [Pin Option], [Pin Mode]</p>
+<p>Pin Options</p>
+<p><ul>
+    <li><b>Pin Preset Modes</b> - 'P'
+        <ul>
+            <li>Setup the pin according to a preset</li>
+            <li>Arguments: [Pin Mode]
+                <ul>
+                    <li>'G': Ground Mode</li>
+                    <li>'L': LED Mode</li>
+                    <li>'N': NTC/Temperature Mode</li>
+                    <li>'D': Data Pin Mode</li>
+                </ul>
+            </li>
+            <li>Returns: None</li>
+            <li>Example usage: S,1,P,G;</li>
+        </ul>
+    </li>
+    <li><b>Pin Input Mode</b> - 'I'
+        <ul>
+            <li>Set the input pin of the corresponding pin</li>
+            <li>Arguments: [Pin Mode]
+                <ul>
+                    <li>'L': Output Low</li>
+                    <li>'H': Output High</li>
+                    <li>'I': Input</li>
+                    <li>'P': Input Pullup</li>
+                </ul>
+            </li>
+            <li>Returns: None</li>
+            <li>Example usage: S,1,I,I;</li>
+        </ul>
+    </li>
+    <li><b>Pin Output Mode</b> - 'O'
+        <ul>
+            <li>Set the output pin of the corresponding pin</li>
+            <li>Arguments: [Pin Mode]
+                <ul>
+                    <li>'L': Output Low</li>
+                    <li>'H': Output High</li>
+                    <li>'I': Input</li>
+                    <li>'P': Input Pullup</li>
+                </ul>
+            </li>
+            <li>Returns: None</li>
+            <li>Example usage: S,1,O,I;</li>
+        </ul>
+    </li>
+</ul></p>
+
+<h2>Pin Control - P</h2>
+<p>Control the input/output of each pin individually</p>
+<p>Arguments: [Pin Number (0 indexed)], [Pin Option = 'I' or 'O'], [Pin Command]</p>
+<p>Pin Commands</p>
+<p><ul>
+    <li><b>Read Pin</b> - 'R'
+        <ul>
+            <li>Reads the given pin and sends back the data</li>
+            <li>Arguments: None</li>
+            <li>Returns: The read value of the pin</li>
+            <li>Example usage: P,0,I,R;</li>
+        </ul>
+    </li>
+    <li><b>Set Pin Low</b> - 'L' or 'l' or '0'
+        <ul>
+            <li>Sets the output to the given pin Low</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: P,0,O,L;</li>
+        </ul>
+    </li>
+    <li><b>Set Pin High</b> - 'H' or 'h' or '1'
+        <ul>
+            <li>Sets the output to the given pin High</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: P,0,O,H;</li>
+        </ul>
+    </li>
+    <li><b>Receive Updates</b> - U
+        <ul>
+            <li>Sets the pin to send updates on state change</li>
+            <li>Arguments: None</li>
+            <li>Returns: A status update when the pin changes</li>
+            <li>Example usage: P,2,I,U;</li>
+        </ul>
+    </li>
+    <li><b>Don't Receive Updates</b> - u
+        <ul>
+            <li>Sets the pin to not send updates on state change</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: P,2,I,u;</li>
+        </ul>
+    </li>
+</ul></p>
+
+<h2>LED Control - L</h2>
+<p>Control the LED pins</p>
+<p>Arguments: [LED Pin Number (0 indexed)], [LED Command], [Arguments]</p>
+<p><ul>
+    <li><b>LED Setup</b> - C
+        <ul>
+            <li>Setup an LED</li>
+            <li>Arguments: [Pulse On Duration (ms)], [Pule Off Duration (ms)], [LED On Duration (ms)], [LED Off Duration (ms)]</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,C,1000,4000,10,40;</li>
+        </ul>
+    </li>
+    <li><b>Set Pulse On Duration</b> - N
+        <ul>
+            <li>Set the LED Pulse On Duration</li>
+            <li>Arguments: [Pulse On Duration (ms)]</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,N,1000;</li>
+        </ul>
+    </li>
+    <li><b>Set Pulse Off Duration</b> - F
+        <ul>
+            <li>Set the LED Pulse Off Duration</li>
+            <li>Arguments: [Pulse Off Duration (ms)]</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,F,1000;</li>
+        </ul>
+    </li>
+    <li><b>Set LED On Duration</b> - n
+        <ul>
+            <li>Set the LED On Duration</li>
+            <li>Arguments: [LED On Duration (ms)]</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,n,10;</li>
+        </ul>
+    </li>
+    <li><b>Set LED Off Duration</b> - f
+        <ul>
+            <li>Set the LED Off Duration</li>
+            <li>Arguments: [LED Off Duration (ms)]</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,f,40;</li>
+        </ul>
+    </li>
+    <li><b>Start LED Pulse</b> - S
+        <ul>
+            <li>Starts pulsing the LED</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,S;</li>
+        </ul>
+    </li>
+    <li><b>Restart LED Pulse</b> - R
+        <ul>
+            <li>Stops then starts pulsing the LED</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,R;</li>
+        </ul>
+    </li>
+    <li><b>Stop LED Pulse</b> - s
+        <ul>
+            <li>Stops pulsing the LED</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,s;</li>
+        </ul>
+    </li>
+    <li><b>Turn LED On</b> - O
+        <ul>
+            <li>Turns the LED On</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,O;</li>
+        </ul>
+    </li>
+    <li><b>Turn LED Off</b> - o
+        <ul>
+            <li>Turns the LED Off</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,O;</li>
+        </ul>
+    </li>
+    <li><b>Receive Updates</b> - U
+        <ul>
+            <li>Sets the LED to send updates on state change</li>
+            <li>Arguments: None</li>
+            <li>Returns: A status update when the pin changes</li>
+            <li>Example usage: L,2,U;</li>
+        </ul>
+    </li>
+    <li><b>Don't Receive Updates</b> - u
+        <ul>
+            <li>Sets the LED to not send updates on state change</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: L,2,u;</li>
+        </ul>
+    </li>
+</ul></p>
+
+<h2>Data Pin Control - D</h2>
+<p>Control data pins. NTC/Temperature pins are data pins</p>
+<p>Arguments: [Data Pin Number (0 indexed)], [Data Pin Command], [Arguments]</p>
+<p><ul>
+    <li><b>Setup Data Pin</b> - C
+        <ul>
+            <li>Set up a data pin</li>
+            <li>Arguments: [Time Between Data Points (ms)], [Number of Points to Collect]</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,C,250,4;</li>
+        </ul>
+    </li>
+    <li><b>Set Time Between Data Points</b> - P
+        <ul>
+            <li>Set the time between data points</li>
+            <li>Arguments: [Time Between Data Points (ms)]</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,P,250;</li>
+        </ul>
+    </li>
+    <li><b>Set Number of Points to Collect</b> - d
+        <ul>
+            <li>Set the number of data points to collect before sending</li>
+            <li>Arguments: [Number of Points to Collect]</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,P,4;</li>
+        </ul>
+    </li>
+    <li><b>Read and store</b> - r
+        <ul>
+            <li>Read data and store it on the module</li>
+            <li>Arguments: None</li>
+            <li>Returns: Stored data if # points to collect is reached</li>
+            <li>Example usage: D,3,r;</li>
+        </ul>
+    </li>
+    <li><b>Read and send</b> - R
+        <ul>
+            <li>Read and send one piece of data</li>
+            <li>Arguments: None</li>
+            <li>Returns: One piece of data</li>
+            <li>Example usage: D,3,R;</li>
+        </ul>
+    </li>
+    <li><b>Flush Data</b> - F
+        <ul>
+            <li>Send the number of requested data points from module, and clear stored data</li>
+            <li>Arguments: [Number of points to flush]</li>
+            <li>Returns: One piece of data</li>
+            <li>Example usage: D,3,F,10;</li>
+        </ul>
+    </li>
+    <li><b>Clear Data</b> - c
+        <ul>
+            <li>Clear out the stored data on the module</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,c;</li>
+        </ul>
+    </li>
+    <li><b>Start Reading Data</b> - S
+        <ul>
+            <li>Starts reading data</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,S;</li>
+        </ul>
+    </li>
+    <li><b>Restart Reading Data</b> - X
+        <ul>
+            <li>Clears stored data on the module then starts reading</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,X;</li>
+        </ul>
+    </li>
+    <li><b>Stop Reading Data</b> - s
+        <ul>
+            <li>Stops reading data</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,s;</li>
+        </ul>
+    </li>
+    <li><b>Receive Updates</b> - U
+        <ul>
+            <li>Sets the data pin to send updates on state change</li>
+            <li>Arguments: None</li>
+            <li>Returns: A status update when the pin changes</li>
+            <li>Example usage: D,3,U;</li>
+        </ul>
+    </li>
+    <li><b>Don't Receive Updates</b> - u
+        <ul>
+            <li>Sets the data pin to not send updates on state change</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,u;</li>
+        </ul>
+    </li>
+    <li><b>Toggle Output High On Read</b> - O
+        <ul>
+            <li>The data pin will turn the output on, read the pin, turn it off</li>
+            <li>NTC/Temperature pins enable this by default</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,O;</li>
+        </ul>
+    </li>
+    <li><b>Don't Toggle Output High On Read</b> - o
+        <ul>
+            <li>The data pin will just read the pin</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,o;</li>
+        </ul>
+    </li>
+    <li><b>Set Output High</b> - H
+        <ul>
+            <li>Turn on the output side of the data pin</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,H;</li>
+        </ul>
+    </li>
+    <li><b>Set Output Low</b> - L
+        <ul>
+            <li>Turn off the output side of the data pin</li>
+            <li>Arguments: None</li>
+            <li>Returns: None</li>
+            <li>Example usage: D,3,L;</li>
+        </ul>
+    </li>
+</ul></p>
+
+<h1>Credits and acknowledgements</h1>
+<p>This software was created by Harrison Allen of the Bioelectronics Group at MIT. Reach out to <a href="hmallen@mit.edu">hmallen@mit.edu</a> with any questions/concerns/requests.</a></p>
